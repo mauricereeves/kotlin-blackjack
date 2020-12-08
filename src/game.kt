@@ -5,65 +5,6 @@ const val DEALER_HIT_LIMIT = 17
 /**
  *
  */
-enum class Suit {
-    CLUBS, SPADES, HEARTS, DIAMONDS
-}
-
-/**
- *
- */
-enum class Value(val value: Int) {
-    ACE(1),
-    TWO(2),
-    THREE(3),
-    FOUR(4),
-    FIVE(5),
-    SIX(6),
-    SEVEN(7),
-    EIGHT(8),
-    NINE(9),
-    TEN(10),
-    JACK(11),
-    QUEEN(12),
-    KING(13)
-}
-
-/**
- * The types of card-counting systems
- */
-enum class CountingSystem {
-    HILO,
-    HILOOPTION1,
-    HILOOPTION2,
-    KO,
-    OMEGA2,
-    RED7,
-    HALVES,
-    ZENCOUNT
-}
-
-interface ICardHolder {
-    val cards: MutableList<Card>
-
-    fun shuffle()
-
-    fun getCard(): Card {
-        if (cards.count() == 0)
-            shuffle()
-
-        return cards.removeAt(0)
-    }
-}
-
-interface ICardCountingSystem {
-    var count: Int
-
-    fun addToCount(card: Card): Int
-}
-
-/**
- *
- */
 data class Card(val suit: Suit, val value: Value)
 
 data class Player(val name: String, var balance: Float, var hands: MutableList<Hand>)
