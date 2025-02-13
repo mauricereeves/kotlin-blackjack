@@ -21,7 +21,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("gameKt")
+    mainClass.set("MainKt")
 }
 
 tasks.test {
