@@ -1,6 +1,6 @@
 import blackjack.Deck
-import blackjack.Shoe
 import blackjack.HiLoCount
+import blackjack.Shoe
 import blackjack.runGame
 
 /**

@@ -9,13 +9,15 @@ class HiLoCount : ICardCountingSystem {
             Value.THREE,
             Value.FOUR,
             Value.FIVE,
-            Value.SIX -> count += 1
+            Value.SIX,
+            -> count += 1
 
             Value.TEN,
             Value.JACK,
             Value.QUEEN,
             Value.KING,
-            Value.ACE -> count -= 1
+            Value.ACE,
+            -> count -= 1
 
             // 7 - 9 the count remains stable so do nothing
             else -> count += 0

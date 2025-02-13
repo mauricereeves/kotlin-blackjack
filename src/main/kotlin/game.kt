@@ -5,9 +5,16 @@ const val DEALER_HIT_LIMIT = 17
 /**
  *
  */
-data class Card(val suit: Suit, val value: Value)
+data class Card(
+    val suit: Suit,
+    val value: Value,
+)
 
-data class Player(val name: String, var balance: Float, var hands: MutableList<Hand>)
+data class Player(
+    val name: String,
+    var balance: Float,
+    var hands: MutableList<Hand>,
+)
 
 class Hand {
     constructor ()
@@ -27,7 +34,8 @@ class Hand {
                     Value.KING,
                     Value.QUEEN,
                     Value.JACK,
-                    Value.TEN -> handValue += 10
+                    Value.TEN,
+                    -> handValue += 10
                     Value.TWO -> handValue += 2
                     Value.THREE -> handValue += 3
                     Value.FOUR -> handValue += 4
@@ -36,10 +44,12 @@ class Hand {
                     Value.SEVEN -> handValue += 7
                     Value.EIGHT -> handValue += 8
                     Value.NINE -> handValue += 9
-                    Value.ACE -> handValue += when {
-                        (handValue + 11) > 21 -> 1
-                        else -> 11
-                    }
+                    Value.ACE ->
+                        handValue +=
+                            when {
+                                (handValue + 11) > 21 -> 1
+                                else -> 11
+                            }
                 }
             }
 
@@ -48,9 +58,7 @@ class Hand {
 
     var bet: Float = 0F
 
-    override fun toString(): String {
-        return cards.joinToString(",")
-    }
+    override fun toString(): String = cards.joinToString(",")
 }
 
 /**
@@ -82,7 +90,9 @@ class Deck : ICardHolder {
     }
 }
 
-class Shoe(private val countOfDecks: Int = 4) : ICardHolder {
+class Shoe(
+    private val countOfDecks: Int = 4,
+) : ICardHolder {
     override val cards: MutableList<Card> = mutableListOf<Card>()
 
     init {
@@ -93,10 +103,11 @@ class Shoe(private val countOfDecks: Int = 4) : ICardHolder {
         cards.shuffle()
     }
 
-    var shuffle_point: Int? = null
+    var shufflePoint: Int? = null
         set(value) {
-            if (value == null)
+            if (value == null) {
                 return
+            }
 
             if (value < 0 || value > countOfDecks * 52) {
                 throw IllegalArgumentException("insertion point cannot be higher than the total number of cards in the shoe")
@@ -126,7 +137,7 @@ fun showDealersHand(dealersHand: Hand) {
 
 fun runGame(
     cardholder: ICardHolder,
-    cardCountingSystem: ICardCountingSystem? = null
+    cardCountingSystem: ICardCountingSystem? = null,
 ) {
     println("Running game")
 
@@ -143,7 +154,7 @@ fun runGame(
     }
 
     println("Count is $count")
-    */
+     */
 
     var winPayoutMultiplier = 1F
     var blackjackPayoutMultiplier = 3F / 2F

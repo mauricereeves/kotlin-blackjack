@@ -3,7 +3,9 @@ package blackjack
 /**
  *
  */
-enum class Value(val value: Int) {
+enum class Value(
+    val value: Int,
+) {
     ACE(1),
     TWO(2),
     THREE(3),
@@ -16,5 +18,5 @@ enum class Value(val value: Int) {
     TEN(10),
     JACK(11),
     QUEEN(12),
-    KING(13)
+    KING(13),
 }

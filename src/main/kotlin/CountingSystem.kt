@@ -11,5 +11,5 @@ enum class CountingSystem {
     OMEGA2,
     RED7,
     HALVES,
-    ZENCOUNT
+    ZENCOUNT,
 }

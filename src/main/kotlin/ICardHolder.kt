@@ -6,8 +6,9 @@ interface ICardHolder {
     fun shuffle()
 
     fun getCard(): Card {
-        if (cards.count() == 0)
+        if (cards.count() == 0) {
             shuffle()
+        }
 
         return cards.removeAt(0)
     }
